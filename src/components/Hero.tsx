@@ -4,18 +4,42 @@ import profilePhoto from "@/assets/profile-photo.jpg";
 import { useState, useEffect } from "react";
 
 export const Hero = () => {
-  const [currentTitle, setCurrentTitle] = useState(0);
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  
   const titles = [
-    "Software Engineer",
+    "Software Developer",
     "Software Quality Assurance Engineer"
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTitle((prev) => (prev + 1) % titles.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+    const currentTitle = titles[currentTitleIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        // Typing
+        if (displayedText.length < currentTitle.length) {
+          setDisplayedText(currentTitle.slice(0, displayedText.length + 1));
+        } else {
+          // Wait before deleting
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        // Deleting
+        if (displayedText.length > 0) {
+          setDisplayedText(currentTitle.slice(0, displayedText.length - 1));
+        } else {
+          // Move to next title
+          setIsDeleting(false);
+          setCurrentTitleIndex((prev) => (prev + 1) % titles.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, currentTitleIndex]);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-subtle pt-24">
@@ -27,8 +51,9 @@ export const Hero = () => {
               <h1 className="text-5xl lg:text-6xl font-bold text-foreground">
                 Alex Thompson
               </h1>
-              <h2 className="text-2xl lg:text-3xl font-semibold bg-gradient-primary bg-clip-text text-transparent transition-all duration-500 min-h-[3rem] flex items-center">
-                {titles[currentTitle]}
+              <h2 className="text-2xl lg:text-3xl font-semibold bg-gradient-primary bg-clip-text text-transparent min-h-[3rem] flex items-center">
+                {displayedText}
+                <span className="animate-pulse ml-1">|</span>
               </h2>
             </div>
             
