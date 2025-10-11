@@ -109,6 +109,27 @@ export default {
             opacity: "1",
             transform: "scale(1)"
           }
+        },
+        "float": {
+          "0%, 100%": {
+            transform: "translate(0, 0) scale(1)"
+          },
+          "33%": {
+            transform: "translate(50px, -50px) scale(1.1)"
+          },
+          "66%": {
+            transform: "translate(-30px, 30px) scale(0.9)"
+          }
+        },
+        "pulse-glow": {
+          "0%, 100%": {
+            opacity: "0.4",
+            filter: "blur(60px)"
+          },
+          "50%": {
+            opacity: "0.6",
+            filter: "blur(80px)"
+          }
         }
       },
       animation: {
@@ -117,6 +138,8 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-up": "fade-in-up 0.5s ease-out",
         "scale-in": "scale-in 0.4s ease-out",
+        "float": "float 20s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 8s ease-in-out infinite",
       },
       backgroundImage: {
         "gradient-primary": "var(--gradient-primary)",
