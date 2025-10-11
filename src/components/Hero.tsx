@@ -1,10 +1,24 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Download, Linkedin, Github } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import { useState, useEffect } from "react";
 
 export const Hero = () => {
+  const [currentTitle, setCurrentTitle] = useState(0);
+  const titles = [
+    "Software Engineer",
+    "Software Quality Assurance Engineer"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTitle((prev) => (prev + 1) % titles.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-subtle">
+    <section id="home" className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-subtle pt-24">
       <div className="container max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
@@ -13,8 +27,8 @@ export const Hero = () => {
               <h1 className="text-5xl lg:text-6xl font-bold text-foreground">
                 Alex Thompson
               </h1>
-              <h2 className="text-2xl lg:text-3xl font-semibold bg-gradient-primary bg-clip-text text-transparent">
-                Software Quality Assurance Engineer
+              <h2 className="text-2xl lg:text-3xl font-semibold bg-gradient-primary bg-clip-text text-transparent transition-all duration-500 min-h-[3rem] flex items-center">
+                {titles[currentTitle]}
               </h2>
             </div>
             

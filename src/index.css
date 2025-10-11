@@ -118,6 +118,91 @@ All colors MUST be HSL.
   animation-delay: 14s;
 }
 
+/* Animated lines */
+.animated-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(195 100% 50% / 0.5), transparent);
+  animation: moveLine 15s linear infinite;
+}
+
+.line-1 {
+  top: 20%;
+  left: -100%;
+  width: 40%;
+  animation-delay: 0s;
+}
+
+.line-2 {
+  top: 40%;
+  right: -100%;
+  width: 50%;
+  animation-delay: 5s;
+  animation-direction: reverse;
+}
+
+.line-3 {
+  top: 60%;
+  left: -100%;
+  width: 35%;
+  animation-delay: 10s;
+}
+
+.line-4 {
+  top: 80%;
+  right: -100%;
+  width: 45%;
+  animation-delay: 7s;
+  animation-direction: reverse;
+}
+
+/* Animated stars */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: hsl(195 100% 50%);
+  border-radius: 50%;
+  box-shadow: 0 0 6px hsl(195 100% 50%);
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.star-1 {
+  top: 15%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.star-2 {
+  top: 25%;
+  right: 25%;
+  animation-delay: 1s;
+}
+
+.star-3 {
+  top: 45%;
+  left: 15%;
+  animation-delay: 2s;
+}
+
+.star-4 {
+  top: 65%;
+  right: 20%;
+  animation-delay: 1.5s;
+}
+
+.star-5 {
+  top: 75%;
+  left: 30%;
+  animation-delay: 0.5s;
+}
+
+.star-6 {
+  top: 35%;
+  left: 50%;
+  animation-delay: 2.5s;
+}
+
 @keyframes float {
   0%, 100% {
     transform: translate(0, 0) scale(1);
@@ -127,5 +212,25 @@ All colors MUST be HSL.
   }
   66% {
     transform: translate(-30px, 30px) scale(0.9);
+  }
+}
+
+@keyframes moveLine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
   }
 }

@@ -35,7 +35,7 @@ const skills = [
 
 export const Skills = () => {
   return (
-    <section className="py-20 px-4 bg-background">
+    <section id="skills" className="py-20 px-4 bg-background">
       <div className="container max-w-6xl mx-auto">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl font-bold text-foreground mb-4">
