@@ -69,10 +69,10 @@ export const Projects = () => {
                 </div>
               </CardContent>
               
-              <CardFooter className="gap-3 flex-wrap">
+              <CardFooter className="gap-3">
                 {project.testCaseLink && (
                   <Button 
-                    variant="outline" 
+                    variant="default" 
                     className="flex-1 gap-2"
                     onClick={() => window.open(project.testCaseLink, '_blank')}
                   >
@@ -82,12 +82,11 @@ export const Projects = () => {
                 )}
                 {project.githubLink && (
                   <Button 
-                    variant="default" 
-                    className="flex-1 gap-2"
+                    variant="outline" 
+                    size="icon"
                     onClick={() => window.open(project.githubLink, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4" />
-                    View on GitHub
                   </Button>
                 )}
               </CardFooter>
