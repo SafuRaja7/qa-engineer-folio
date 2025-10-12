@@ -69,7 +69,17 @@ export const Projects = () => {
                 </div>
               </CardContent>
               
-              <CardFooter className="gap-3">
+              <CardFooter className="gap-3 flex-wrap">
+                {project.testCaseLink && (
+                  <Button 
+                    variant="outline" 
+                    className="flex-1 gap-2"
+                    onClick={() => window.open(project.testCaseLink, '_blank')}
+                  >
+                    <FileText className="w-4 h-4" />
+                    View Test Cases
+                  </Button>
+                )}
                 {project.githubLink && (
                   <Button 
                     variant="default" 
@@ -78,16 +88,6 @@ export const Projects = () => {
                   >
                     <ExternalLink className="w-4 h-4" />
                     View on GitHub
-                  </Button>
-                )}
-                {project.testCaseLink && (
-                  <Button 
-                    variant="default" 
-                    className="flex-1 gap-2"
-                    onClick={() => window.open(project.testCaseLink, '_blank')}
-                  >
-                    <FileText className="w-4 h-4" />
-                    View Test Cases
                   </Button>
                 )}
               </CardFooter>
