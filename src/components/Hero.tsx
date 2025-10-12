@@ -42,7 +42,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-subtle pt-24"
+      className="min-h-screen flex items-center justify-center px-4 py-20 bg-card/50 pt-24"
     >
       <div className="container max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
