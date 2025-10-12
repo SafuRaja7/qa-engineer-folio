@@ -45,7 +45,7 @@ export const Hero = () => {
       className="min-h-screen flex items-center justify-center px-4 py-20 bg-card/50 pt-24"
     >
       <div className="container max-w-6xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
             <div className="space-y-2">
               <p className="text-primary font-semibold text-lg">Hello, I'm</p>
