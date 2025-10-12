@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 
 const projects = [
   {
-    title: "Cypress E2E Automation - AutomationExercise.com",
+    title: "Cypress E2E Automation",
     description: "Automated end-to-end test cases using Cypress covering user registration, login/logout flows, incorrect credential handling, and comprehensive user journey validation.",
     tech: ["Cypress", "E2E Testing", "JavaScript", "Automation"],
     githubLink: "https://github.com/SafuRaja7/AutomationExercise-Cypress"
