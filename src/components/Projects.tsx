@@ -5,35 +5,27 @@ import { Badge } from "@/components/ui/badge";
 
 const projects = [
   {
-    title: "E-Commerce Platform Testing",
-    description: "Comprehensive testing of a multi-vendor e-commerce platform including payment gateway integration, user authentication, and inventory management.",
-    tech: ["Manual Testing", "API Testing", "Regression Testing"],
-    testCases: 185,
-    bugs: 42,
-    testCaseLink: "https://docs.google.com/spreadsheets/d/example-ecommerce"
+    title: "Cypress E2E Automation - AutomationExercise.com",
+    description: "Automated end-to-end test cases using Cypress covering user registration, login/logout flows, incorrect credential handling, and comprehensive user journey validation.",
+    tech: ["Cypress", "E2E Testing", "JavaScript", "Automation"],
+    githubLink: "https://github.com/SafuRaja7/AutomationExercise-Cypress"
   },
   {
     title: "Healthcare Mobile App QA",
     description: "End-to-end testing of a healthcare appointment booking mobile application with focus on HIPAA compliance and data security.",
     tech: ["Mobile Testing", "Security Testing", "Usability Testing"],
-    testCases: 156,
-    bugs: 38,
     testCaseLink: "https://docs.google.com/spreadsheets/d/example-healthcare"
   },
   {
     title: "Banking Web Application",
     description: "Critical testing of online banking features including transactions, bill payments, and account management with emphasis on security protocols.",
     tech: ["Functional Testing", "Security Testing", "Performance Testing"],
-    testCases: 213,
-    bugs: 51,
     testCaseLink: "https://docs.google.com/spreadsheets/d/example-banking"
   },
   {
     title: "Project Management Tool",
     description: "Testing of collaborative project management software with real-time updates, task tracking, and team communication features.",
     tech: ["Integration Testing", "Cross-browser Testing", "UAT"],
-    testCases: 142,
-    bugs: 29,
     testCaseLink: "https://docs.google.com/spreadsheets/d/example-pm-tool"
   }
 ];
@@ -75,35 +67,29 @@ export const Projects = () => {
                     </Badge>
                   ))}
                 </div>
-                
-                <div className="grid grid-cols-2 gap-4 pt-2">
-                  <div className="p-3 rounded-lg bg-background border border-border">
-                    <p className="text-2xl font-bold text-primary">{project.testCases}</p>
-                    <p className="text-xs text-muted-foreground">Test Cases</p>
-                  </div>
-                  <div className="p-3 rounded-lg bg-background border border-border">
-                    <p className="text-2xl font-bold text-secondary">{project.bugs}</p>
-                    <p className="text-xs text-muted-foreground">Bugs Found</p>
-                  </div>
-                </div>
               </CardContent>
               
               <CardFooter className="gap-3">
-                <Button 
-                  variant="default" 
-                  className="flex-1 gap-2"
-                  onClick={() => window.open(project.testCaseLink, '_blank')}
-                >
-                  <FileText className="w-4 h-4" />
-                  View Test Cases
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="icon"
-                  className="group-hover:border-primary"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </Button>
+                {project.githubLink && (
+                  <Button 
+                    variant="default" 
+                    className="flex-1 gap-2"
+                    onClick={() => window.open(project.githubLink, '_blank')}
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    View on GitHub
+                  </Button>
+                )}
+                {project.testCaseLink && (
+                  <Button 
+                    variant="default" 
+                    className="flex-1 gap-2"
+                    onClick={() => window.open(project.testCaseLink, '_blank')}
+                  >
+                    <FileText className="w-4 h-4" />
+                    View Test Cases
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           ))}
