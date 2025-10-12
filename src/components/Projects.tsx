@@ -8,7 +8,8 @@ const projects = [
     title: "Cypress E2E Automation",
     description: "Automated end-to-end test cases using Cypress covering user registration, login/logout flows, incorrect credential handling, and comprehensive user journey validation.",
     tech: ["Cypress", "E2E Testing", "JavaScript", "Automation"],
-    githubLink: "https://github.com/SafuRaja7/AutomationExercise-Cypress"
+    githubLink: "https://github.com/SafuRaja7/AutomationExercise-Cypress",
+    testCaseLink: ""
   },
   {
     title: "Healthcare Mobile App QA",
@@ -70,25 +71,23 @@ export const Projects = () => {
               </CardContent>
               
               <CardFooter className="gap-3">
-                {project.testCaseLink && (
-                  <Button 
-                    variant="default" 
-                    className="flex-1 gap-2"
-                    onClick={() => window.open(project.testCaseLink, '_blank')}
-                  >
-                    <FileText className="w-4 h-4" />
-                    View Test Cases
-                  </Button>
-                )}
-                {project.githubLink && (
-                  <Button 
-                    variant="outline" 
-                    size="icon"
-                    onClick={() => window.open(project.githubLink, '_blank')}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
-                )}
+                <Button 
+                  variant="default" 
+                  className="flex-1 gap-2"
+                  onClick={() => project.testCaseLink !== '#' && window.open(project.testCaseLink, '_blank')}
+                  disabled={project.testCaseLink === '#'}
+                >
+                  <FileText className="w-4 h-4" />
+                  View Test Cases
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="icon"
+                  onClick={() => project.githubLink !== '#' && window.open(project.githubLink, '_blank')}
+                  disabled={project.githubLink === '#'}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                </Button>
               </CardFooter>
             </Card>
           ))}

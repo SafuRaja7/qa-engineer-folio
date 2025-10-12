@@ -59,10 +59,7 @@ export const Hero = () => {
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Passionate about ensuring software excellence through meticulous testing, 
-              comprehensive test case design, and continuous quality improvement. With 5+ years 
-              of experience in manual and automated testing, I help teams deliver reliable, 
-              high-quality products.
+            Passionate QA Automation Engineer transitioning from a software development background. With over 2 years of experience in web and mobile development, I now focus on building robust automated test frameworks, improving test coverage, and enhancing product reliability using tools like Playwright, Selenium, and Cypress.
             </p>
             
             <div className="flex flex-wrap gap-4 pt-4">
