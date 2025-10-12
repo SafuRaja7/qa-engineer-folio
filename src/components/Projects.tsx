@@ -9,7 +9,7 @@ const projects = [
     description: "Automated end-to-end test cases using Cypress covering user registration, login/logout flows, incorrect credential handling, and comprehensive user journey validation.",
     tech: ["Cypress", "E2E Testing", "JavaScript", "Automation"],
     githubLink: "https://github.com/SafuRaja7/AutomationExercise-Cypress",
-    testCaseLink: ""
+    testCaseLink: "https://github.com/SafuRaja7/qa-engineer-folio/blob/main/test_cases/tc_project_1.md"
   },
   {
     title: "Healthcare Mobile App QA",

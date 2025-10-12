@@ -18,8 +18,11 @@ export const Navbar = () => {
       <div className="container max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            AT
+          <a 
+            href="/" 
+            className="text-3xl font-normal bg-gradient-primary bg-clip-text text-transparent font-alexBrush italic tracking-wider"
+          >
+            SaifuRaja/&gt;
           </a>
 
           {/* Desktop Navigation */}
@@ -48,7 +51,9 @@ export const Navbar = () => {
             >
               Contact
             </button>
-            <Button size="sm" className="gap-2">
+            <Button size="sm" className="gap-2"
+                onClick={() => window.open("public/resume.pdf", "_blank")}
+                >
               <Download className="w-4 h-4" />
               Resume
             </Button>
@@ -91,7 +96,9 @@ export const Navbar = () => {
               Contact
             </button>
             <div className="px-4">
-              <Button size="sm" className="w-full gap-2">
+              <Button size="sm" className="w-full gap-2"
+                onClick={() => window.open("public/resume.pdf", "_blank")}
+              >
                 <Download className="w-4 h-4" />
                 Resume
               </Button>

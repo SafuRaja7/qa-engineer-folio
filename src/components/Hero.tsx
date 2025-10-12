@@ -1,23 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Download, Linkedin, Github } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import { FaMedium } from "react-icons/fa";
+import profilePhoto from "@/assets/me.jpeg";
 import { useState, useEffect } from "react";
 
 export const Hero = () => {
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  
-  const titles = [
-    "QA Automation Engineer",
-    "Software Developer",
-    
-  ];
+
+  const titles = ["QA Automation Engineer", "Software Developer"];
 
   useEffect(() => {
     const currentTitle = titles[currentTitleIndex];
     const typingSpeed = isDeleting ? 50 : 100;
-    
+
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         // Typing
@@ -43,7 +40,10 @@ export const Hero = () => {
   }, [displayedText, isDeleting, currentTitleIndex]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-subtle pt-24">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-subtle pt-24"
+    >
       <div className="container max-w-6xl">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
@@ -57,46 +57,68 @@ export const Hero = () => {
                 <span className="animate-pulse ml-1">|</span>
               </h2>
             </div>
-            
+
             <p className="text-lg text-muted-foreground leading-relaxed">
-            Passionate QA Automation Engineer transitioning from a software development background. With over 2 years of experience in web and mobile development, I now focus on building robust automated test frameworks, improving test coverage, and enhancing product reliability using tools like Playwright, Selenium, and Cypress.
+              Passionate QA Automation Engineer transitioning from a software
+              development background. With over 2 years of experience in web and
+              mobile development, I now focus on building robust automated test
+              frameworks, improving test coverage, and enhancing product
+              reliability using tools like Playwright, Selenium, and Cypress.
             </p>
-            
+
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button size="lg" className="gap-2">
-                <Mail className="w-4 h-4" />
-                Contact Me
-              </Button>
-              <Button size="lg" variant="outline" className="gap-2">
-                <Download className="w-4 h-4" />
-                Download CV
+              <a href="mailto:saifuraja7@gmail.com">
+                <Button size="lg" className="gap-2">
+                  <Mail className="w-4 h-4" />
+                  Contact Me
+                </Button>
+              </a>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="gap-2"
+                onClick={() => {
+                  const section = document.getElementById("projects");
+                  section?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                View My Work
               </Button>
             </div>
-            
+
             <div className="flex gap-4 pt-4">
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/safuraja7/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-lg bg-card hover:bg-accent transition-colors duration-300 border border-border hover:border-primary"
               >
                 <Linkedin className="w-5 h-5 text-primary" />
               </a>
-              <a 
-                href="https://github.com" 
-                target="_blank" 
+              <a
+                href="https://github.com/SafuRaja7"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-lg bg-card hover:bg-accent transition-colors duration-300 border border-border hover:border-primary"
               >
                 <Github className="w-5 h-5 text-primary" />
               </a>
+              <a
+                href="https://medium.com/@safuraja7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-card hover:bg-accent transition-colors duration-300 border border-border hover:border-primary"
+              >
+                <FaMedium className="w-5 h-5 text-primary" />
+              </a>
             </div>
           </div>
-          
+
           <div className="relative animate-scale-in">
             <div className="relative z-10">
-              <img 
-                src={profilePhoto} 
+              <img
+                src={profilePhoto}
                 alt="Saif Waheed Raja - QA Engineer"
                 className="w-full max-w-md mx-auto rounded-2xl shadow-glow border-4 border-card"
               />
