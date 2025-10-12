@@ -66,18 +66,18 @@ export const Hero = () => {
               reliability using tools like Playwright, Selenium, and Cypress.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex gap-2 sm:gap-4 pt-4">
               <a href="mailto:saifuraja7@gmail.com">
-                <Button size="lg" className="gap-2">
+                <Button size="sm" className="gap-2 sm:size-lg">
                   <Mail className="w-4 h-4" />
                   Contact Me
                 </Button>
               </a>
 
               <Button
-                size="lg"
+                size="sm"
                 variant="outline"
-                className="gap-2"
+                className="gap-2 sm:size-lg"
                 onClick={() => {
                   const section = document.getElementById("projects");
                   section?.scrollIntoView({ behavior: "smooth" });
