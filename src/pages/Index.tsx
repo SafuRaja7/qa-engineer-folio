@@ -39,7 +39,7 @@ const Index = () => {
         
         <footer className="py-6 px-4 border-t border-border/50 bg-card/50 backdrop-blur-sm">
           <div className="container max-w-6xl mx-auto text-center text-muted-foreground">
-            <p>© 2025 Alex Thompson. All rights reserved.</p>
+            <p>© 2025 Saif Waheed Raja. All rights reserved.</p>
           </div>
         </footer>
       </div>

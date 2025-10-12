@@ -9,8 +9,9 @@ export const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   
   const titles = [
+    "QA Automation Engineer",
     "Software Developer",
-    "Software Quality Assurance Engineer"
+    
   ];
 
   useEffect(() => {
@@ -49,7 +50,7 @@ export const Hero = () => {
             <div className="space-y-2">
               <p className="text-primary font-semibold text-lg">Hello, I'm</p>
               <h1 className="text-5xl lg:text-6xl font-bold text-foreground">
-                Alex Thompson
+                Saif Waheed Raja
               </h1>
               <h2 className="text-2xl lg:text-3xl font-semibold bg-gradient-primary bg-clip-text text-transparent min-h-[3rem] flex items-center">
                 {displayedText}
@@ -99,7 +100,7 @@ export const Hero = () => {
             <div className="relative z-10">
               <img 
                 src={profilePhoto} 
-                alt="Alex Thompson - QA Engineer"
+                alt="Saif Waheed Raja - QA Engineer"
                 className="w-full max-w-md mx-auto rounded-2xl shadow-glow border-4 border-card"
               />
             </div>
