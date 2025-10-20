@@ -14,7 +14,7 @@ const experiences: ExperienceItem[] = [
   {
     company: "Absolute Training and Consulting LLC",
     role: "Software Quality Assurance Engineer",
-    type: "Full-time",
+    type: " Remote Full-time",
     location: "United Arab Emirates",
     duration: "Jan '25 – Present",
     responsibilities: [
