@@ -52,7 +52,7 @@ export const Navbar = () => {
               Contact
             </button>
             <Button size="sm" className="gap-2"
-                onClick={() => window.open("public/resume.pdf", "_blank")}
+                onClick={() => window.open("/resume.pdf", "_blank")}
                 >
               <Download className="w-4 h-4" />
               Resume
@@ -97,7 +97,7 @@ export const Navbar = () => {
             </button>
             <div className="px-4">
               <Button size="sm" className="w-full gap-2"
-                onClick={() => window.open("public/resume.pdf", "_blank")}
+                onClick={() => window.open("/resume.pdf", "_blank")}
               >
                 <Download className="w-4 h-4" />
                 Resume

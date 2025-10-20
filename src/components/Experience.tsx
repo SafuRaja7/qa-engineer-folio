@@ -12,16 +12,16 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    company: "Dream Internet Services",
+    company: "Absolute Training and Consulting LLC",
     role: "Software Quality Assurance Engineer",
     type: "Full-time",
-    location: "Gujar Khan, Pakistan",
+    location: "United Arab Emirates",
     duration: "Jan '25 – Present",
     responsibilities: [
-      "Ensured 99% defect detection before production release.",
-      "Designed and executed comprehensive manual and automated test cases.",
-      "Maintained QA Documentation including test plans, defect logs and UAT reports.",
-      "Collaborated with developers and product owners to identify and resolve defects.",
+      "Ensured 99% defect detection before production deployment through rigorous testing practices.",
+      "Developed and executed manual and automated test cases for mobile and web applications.",
+      "Managed QA documentation such as test plans, defect reports, and UAT summaries.",
+      "Worked closely with development and product teams to prioritize and resolve issues, enhancing product quality and user satisfaction.",
     ],
   },
   {
@@ -31,9 +31,9 @@ const experiences: ExperienceItem[] = [
     location: "Islamabad, Pakistan",
     duration: "Mar '25 – May '25",
     responsibilities: [
-      "Assisted in debugging existing applications.",
-      "Developed unique frontend features in Flutter projects.",
-      "Collaborated with teams to enhance application functionality.",
+      "Supported the debugging and optimization of existing applications to improve overall efficiency.",
+      "Designed and built engaging frontend components for Flutter-based mobile projects.",
+      "Worked closely with team members to enhance functionality and maintain high-quality standards across applications.",
     ],
   },
   {
@@ -43,11 +43,12 @@ const experiences: ExperienceItem[] = [
     location: "Islamabad, Pakistan",
     duration: "May '24 – Dec '24",
     responsibilities: [
-      "Translated UI/UX into Flutter code.",
-      "Integrated backend and third-party REST APIs.",
-      "Debugged and optimized application performance.",
-      "Managed Git branches, pull requests, and issue tracking.",
-      "Collaborated with team members for feature development.",
+      "Developed and implemented frontend features by translating UI/UX designs into responsive Flutter code.",
+      "Debugged and optimized application performance, ensuring smooth and efficient operation across devices",
+      "Integrated backend services and third-party REST APIs to enhance app functionality and user experience.",
+      "Managed Git branches, pull requests, and issue tracking, maintaining a structured version control workflow.",
+      "Collaborated with cross-functional teams to plan and develop new features aligned with project requirements.",
+      "Engaged in direct communication with clients to gather feedback, clarify requirements, and ensure satisfaction with deliverables.",
     ],
   },
   {
@@ -57,11 +58,11 @@ const experiences: ExperienceItem[] = [
     location: "Lahore, Pakistan",
     duration: "Mar '24 – May '24",
     responsibilities: [
-      "Version management with Git.",
-      "Managed online/offline app state.",
-      "Integrated backend services and REST APIs.",
-      "Worked with team members on new features.",
-      "Maintained regular communication with clients.",
+      "Collaborated with team members to design, develop, and deploy new features.",
+      "Managed online and offline application states to ensure seamless user experiences.",
+      "Integrated backend services and REST APIs for data synchronization and enhanced functionality.",
+      "Implemented version control workflows using Git for efficient collaboration and code management.",
+      "Maintained direct communication with clients to gather requirements and provide project updates.",
     ],
   },
   {
@@ -71,11 +72,11 @@ const experiences: ExperienceItem[] = [
     location: "Islamabad, Pakistan",
     duration: "Aug '22 – June '23",
     responsibilities: [
-      "Direct communication with clients.",
-      "Debugged and optimized performance.",
-      "Integrated backend and third party APIs.",
-      "Maintained Git workflow and version control.",
-      "Developed frontend features by translating UI/UX to Flutter.",
+      "Maintained Git workflow and version control for efficient collaboration and deployment.",
+      "Integrated backend services and third-party APIs for enhanced application capabilities.",
+      "Communicated directly with clients to gather requirements and provide technical support.",
+      "Debugged issues, optimized app performance, and ensured smooth functionality across devices.",
+      "Developed responsive frontend features by translating UI/UX designs into functional Flutter components.",
     ],
   },
 ];
@@ -87,7 +88,7 @@ export const Experience = () => {
         <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-fade-in">
           EXPERIENCE
         </h2>
-        
+
         <div className="space-y-6">
           {experiences.map((exp, index) => (
             <Card
@@ -103,13 +104,15 @@ export const Experience = () => {
                     </h3>
                     <div className="flex flex-wrap items-center gap-2 text-muted-foreground mb-2">
                       <Briefcase className="w-4 h-4" />
-                      <span className="font-semibold text-foreground">{exp.role}</span>
+                      <span className="font-semibold text-foreground">
+                        {exp.role}
+                      </span>
                       <span className="text-sm px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
                         {exp.type}
                       </span>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col gap-2 text-sm text-muted-foreground md:text-right">
                     <div className="flex items-center gap-2 md:justify-end">
                       <Calendar className="w-4 h-4" />
@@ -121,7 +124,7 @@ export const Experience = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <ul className="space-y-2 mt-4">
                   {exp.responsibilities.map((resp, idx) => (
                     <li

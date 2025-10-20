@@ -38,7 +38,7 @@ export const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Phone</h3>
                     <a href="tel:+923290520230" className="text-muted-foreground hover:text-primary transition-colors">
-                      +32 (329) 0520230
+                      +92 (329) 0520230
                     </a>
                   </div>
                 </div>
