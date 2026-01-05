@@ -1,5 +1,6 @@
 import { Briefcase, MapPin, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 interface ExperienceItem {
   company: string;
@@ -83,61 +84,76 @@ const experiences: ExperienceItem[] = [
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-20 px-4">
+    <section id="experience" className="py-20 px-4 overflow-hidden">
       <div className="container max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-fade-in">
+        <motion.h2 
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
+        >
           EXPERIENCE
-        </h2>
+        </motion.h2>
 
         <div className="space-y-6">
           {experiences.map((exp, index) => (
-            <Card
+            <motion.div
               key={index}
-              className="group hover:shadow-glow transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm hover:scale-[1.02] animate-fade-in"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
             >
-              <CardContent className="p-6">
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-foreground mb-2">
-                      {exp.company}
-                    </h3>
-                    <div className="flex flex-wrap items-center gap-2 text-muted-foreground mb-2">
-                      <Briefcase className="w-4 h-4" />
-                      <span className="font-semibold text-foreground">
-                        {exp.role}
-                      </span>
-                      <span className="text-sm px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
-                        {exp.type}
-                      </span>
+              <Card
+                className="group hover:shadow-glow transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm hover:translate-x-2"
+              >
+                <CardContent className="p-6">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                        {exp.company}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-2 text-muted-foreground mb-2">
+                        <Briefcase className="w-4 h-4" />
+                        <span className="font-semibold text-foreground">
+                          {exp.role}
+                        </span>
+                        <span className="text-sm px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                          {exp.type}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2 text-sm text-muted-foreground md:text-right">
+                      <div className="flex items-center gap-2 md:justify-end">
+                        <Calendar className="w-4 h-4" />
+                        <span>{exp.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-2 md:justify-end">
+                        <MapPin className="w-4 h-4" />
+                        <span>{exp.location}</span>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-2 text-sm text-muted-foreground md:text-right">
-                    <div className="flex items-center gap-2 md:justify-end">
-                      <Calendar className="w-4 h-4" />
-                      <span>{exp.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-2 md:justify-end">
-                      <MapPin className="w-4 h-4" />
-                      <span>{exp.location}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <ul className="space-y-2 mt-4">
-                  {exp.responsibilities.map((resp, idx) => (
-                    <li
-                      key={idx}
-                      className="flex items-start gap-3 text-muted-foreground"
-                    >
-                      <span className="text-primary mt-1.5">•</span>
-                      <span className="flex-1">{resp}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+                  <ul className="space-y-2 mt-4">
+                    {exp.responsibilities.map((resp, idx) => (
+                      <motion.li
+                        key={idx}
+                        initial={{ opacity: 0, y: 5 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 + (idx * 0.05) }}
+                        className="flex items-start gap-3 text-muted-foreground"
+                      >
+                        <span className="text-primary mt-1.5">•</span>
+                        <span className="flex-1">{resp}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
