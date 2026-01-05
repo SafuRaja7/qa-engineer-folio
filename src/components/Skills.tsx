@@ -68,39 +68,60 @@ const SkillCard = ({ skill, index }: { skill: typeof skills[0]; index: number })
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      className="group p-6 rounded-xl bg-card border border-border hover:border-primary shadow-card hover:shadow-glow transition-all duration-300"
-    >
-      <div 
-        style={{ transform: "translateZ(50px)" }}
-        className="w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+    <div className="perspective-1000">
+      <motion.div
+        initial={{ 
+          opacity: 0, 
+          rotateY: 1200, // 5 full fast spins
+          scale: 0.5,
+          filter: "blur(8px)" 
+        }}
+        whileInView={{ 
+          opacity: 1, 
+          rotateY: 0, 
+          scale: 1,
+          filter: "blur(0px)" 
+        }}
+        viewport={{ once: true }}
+        transition={{ 
+          duration: .5, 
+          delay: index * 0.1, 
+          ease: [0.23, 1, 0.32, 1] // Custom ease for smooth deceleration
+        }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: "preserve-3d",
+        }}
+        className="group p-6 rounded-xl bg-card/80 backdrop-blur-sm border border-border/50 hover:border-primary shadow-card hover:shadow-glow transition-all duration-300 relative overflow-hidden"
       >
-        <skill.icon className="w-6 h-6 text-white" />
-      </div>
-      <h3 
-        style={{ transform: "translateZ(30px)" }}
-        className="text-xl font-semibold text-foreground mb-2"
-      >
-        {skill.title}
-      </h3>
-      <p 
-        style={{ transform: "translateZ(20px)" }}
-        className="text-muted-foreground"
-      >
-        {skill.description}
-      </p>
-    </motion.div>
+        {/* Soft Glow Border Effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        <div 
+          style={{ transform: "translateZ(50px)" }}
+          className="relative z-10 w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+        >
+          <skill.icon className="w-6 h-6 text-white" />
+        </div>
+        
+        <h3 
+          style={{ transform: "translateZ(30px)" }}
+          className="relative z-10 text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors"
+        >
+          {skill.title}
+        </h3>
+        
+        <p 
+          style={{ transform: "translateZ(20px)" }}
+          className="relative z-10 text-muted-foreground leading-relaxed"
+        >
+          {skill.description}
+        </p>
+      </motion.div>
+    </div>
   );
 };
 
