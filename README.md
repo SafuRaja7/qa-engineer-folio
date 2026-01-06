@@ -25,11 +25,21 @@ QAfolio highlights my testing projects, tools, workflows, and experience in ensu
 
 ## 📸 Screenshots
 
-| Desktop | Mobile |
-|----------|---------|
-| ![Desktop View](./screenshots/web1.png) | ![Mobile View](./screenshots/mob1.png) |
+<table>
+  <tr>
+    <td><img src="./screenshots/web1.png" width="400"></td>
+    <td><img src="./screenshots/mob1.png" width="200"></td>
+  </tr>
+  <tr>
+    <td><img src="./screenshots/web2.png" width="400"></td>
+    <td><img src="./screenshots/mob2.png" width="200"></td>
+  </tr>
+  <tr>
+    <td><img src="./screenshots/web3.png" width="400"></td>
+    <td><img src="./screenshots/mob3.png" width="200"></td>
+  </tr>
+</table>
 
-| ![Desktop View](./screenshots/web2.png) |
 
 ---
 
