@@ -240,7 +240,7 @@ export const Hero = () => {
               }}
               className="absolute -top-6 -right-6 p-4 bg-card rounded-xl border border-border shadow-xl hidden md:block"
             >
-              <p className="text-primary font-bold">QA Engineer</p>
+              <p className="text-primary font-bold">QA Automation Engineer</p>
             </motion.div>
 
             <motion.div
@@ -255,7 +255,7 @@ export const Hero = () => {
               }}
               className="absolute -bottom-6 -left-6 p-4 bg-card rounded-xl border border-border shadow-xl hidden md:block"
             >
-              <p className="text-secondary font-bold">Software Engineer</p>
+              <p className="text-secondary font-bold">Software Developer</p>
             </motion.div>
           </motion.div>
         </div>

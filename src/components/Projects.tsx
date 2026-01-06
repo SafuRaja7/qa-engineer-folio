@@ -5,12 +5,29 @@ import { Badge } from "@/components/ui/badge";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const projects = [
+   {
+    title: "Deen – Your Daily Companion for Faith & Peace",
+    description: "Deen is a Islamic mobile application designed to bring peace and spiritual connection into your daily life. With accurate prayer times, complete Quran access, and thoughtfully curated Islamic content, Deen helps you stay connected to your faith anytime, anywhere.",
+    technologies: ["Flutter", "Dart", "REST API", "Figma"],
+    image: '/deen.png',
+    githubUrl: "https://github.com/SafuRaja7/Deen",
+    testCaseUrl: "#"
+  },
+  {
+      title: 'Multiplatform News App',
+      description: 'Stay informed with our sleek, cross-platform News App built using Flutter and Dart. Designed for Android, iOS, Web, and Desktop, this app delivers real-time news from trusted sources in a fast, responsive, and beautifully crafted UI.',
+      image: '/Newsy.png',
+      technologies: ['Flutter', 'Dart','REST API'],
+      githubUrl: 'https://github.com/SafuRaja7/News-App-Multi-Platform',
+      testCaseUrl: '#'
+    },
   {
     title: "Cypress E2E Automation",
     description: "Automated end-to-end test cases using Cypress covering user registration, login/logout flows, incorrect credential handling, and comprehensive user journey validation.",
-    tech: ["Cypress", "E2E Testing", "JavaScript", "Automation"],
-    githubLink: "https://github.com/SafuRaja7/AutomationExercise-Cypress",
-    testCaseLink: "https://github.com/SafuRaja7/qa-engineer-folio/blob/main/test_cases/tc_project_1.md"
+    technologies: ["Cypress", "E2E Testing", "JavaScript", "Automation"],
+    image: '/cypress.png',
+    githubUrl: "https://github.com/SafuRaja7/AutomationExercise-Cypress",
+    testCaseUrl: "https://github.com/SafuRaja7/qa-engineer-folio/blob/main/test_cases/tc_project_1.md"
   },
 ];
 
@@ -71,9 +88,19 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
         }}
       >
         <Card 
-          className="group h-full bg-card/40 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,186,255,0.2)] overflow-hidden"
+          className="group h-full bg-card/40 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,186,255,0.2)] overflow-hidden flex flex-col"
         >
-          <CardHeader style={{ transform: "translateZ(30px)" }} className="relative z-10">
+          {/* Project Image Container */}
+          <div className="relative h-56 w-full overflow-hidden" style={{ transform: "translateZ(20px)" }}>
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10" />
+            <motion.img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+
+          <CardHeader style={{ transform: "translateZ(30px)" }} className="relative z-10 flex-grow">
             <CardTitle className="text-2xl group-hover:text-primary transition-colors duration-300">
               {project.title}
             </CardTitle>
@@ -84,7 +111,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
           
           <CardContent className="space-y-4 relative z-10" style={{ transform: "translateZ(20px)" }}>
             <div className="flex flex-wrap gap-2">
-              {project.tech.map((tech, i) => (
+              {project.technologies.map((tech, i) => (
                 <Badge 
                   key={i} 
                   variant="secondary" 
@@ -100,21 +127,36 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
             <Button 
               variant="default" 
               className="flex-1 gap-2 bg-primary/90 hover:bg-primary shadow-lg hover:shadow-primary/20 transition-all duration-300"
-              onClick={() => project.testCaseLink !== '#' && window.open(project.testCaseLink, '_blank')}
-              disabled={project.testCaseLink === '#'}
+              onClick={() => {
+                const url = project.testCaseUrl === '#' ? project.githubUrl : project.testCaseUrl;
+                if (url !== '#') window.open(url, '_blank');
+              }}
+              disabled={project.testCaseUrl === '#' && project.githubUrl === '#'}
             >
-              <FileText className="w-4 h-4" />
-              View Test Cases
+              {project.testCaseUrl === '#' ? (
+                <>
+                  <ExternalLink className="w-4 h-4" />
+                  View on Github
+                </>
+              ) : (
+                <>
+                  <FileText className="w-4 h-4" />
+                  View Test Cases
+                </>
+              )}
             </Button>
-            <Button 
-              variant="outline" 
-              size="icon"
-              className="border-primary/20 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
-              onClick={() => project.githubLink !== '#' && window.open(project.githubLink, '_blank')}
-              disabled={project.githubLink === '#'}
-            >
-              <ExternalLink className="w-4 h-4" />
-            </Button>
+            
+            {project.testCaseUrl !== '#' && (
+              <Button 
+                variant="outline" 
+                size="icon"
+                className="border-primary/20 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
+                onClick={() => project.githubUrl !== '#' && window.open(project.githubUrl, '_blank')}
+                disabled={project.githubUrl === '#'}
+              >
+                <ExternalLink className="w-4 h-4" />
+              </Button>
+            )}
           </CardFooter>
 
           {/* Subtle Background Glow */}
