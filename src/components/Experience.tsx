@@ -14,15 +14,16 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     company: "Absolute Training and Consulting LLC",
-    role: "Software Quality Assurance Engineer",
+    role: "Software Engineer",
     type: " Remote Full-time",
     location: "United Arab Emirates",
-    duration: "Jan '25 – Present",
+    duration: "Jan '25 – Dec '25",
     responsibilities: [
-      "Ensured 99% defect detection before production deployment through rigorous testing practices.",
-      "Developed and executed manual and automated test cases for mobile and web applications.",
-      "Managed QA documentation such as test plans, defect reports, and UAT summaries.",
-      "Worked closely with development and product teams to prioritize and resolve issues, enhancing product quality and user satisfaction.",
+      "Developed and maintained robust cross-platform mobile applications using Flutter and Dart, ensuring high performance and responsive UI.",
+      "Architected scalable application structures and state management solutions to support complex business logic and high user traffic.",
+      "Integrated third-party services and REST APIs to enable secure payments, real-time messaging, and interactive features.",
+      "Spearheaded the transition to more efficient development workflows, reducing build times and improving code maintainability.",
+      "Mentored junior developers and participated in architectural reviews to ensure high-quality software delivery.",
     ],
   },
   {
@@ -32,6 +33,7 @@ const experiences: ExperienceItem[] = [
     location: "Islamabad, Pakistan",
     duration: "Mar '25 – May '25",
     responsibilities: [
+      "Developed an AI-powered chatbot using OpenAI API, integrating advanced natural language processing capabilities into the mobile application.",
       "Supported the debugging and optimization of existing applications to improve overall efficiency.",
       "Designed and built engaging frontend components for Flutter-based mobile projects.",
       "Worked closely with team members to enhance functionality and maintain high-quality standards across applications.",
@@ -44,6 +46,8 @@ const experiences: ExperienceItem[] = [
     location: "Islamabad, Pakistan",
     duration: "May '24 – Dec '24",
     responsibilities: [
+      "Architected and developed an inter-company attendance system to streamline employee tracking and reporting.",
+      "Integrated JIRA APIs to automate ticket tracking, monitoring work progress and enhancing project management efficiency.",
       "Developed and implemented frontend features by translating UI/UX designs into responsive Flutter code.",
       "Debugged and optimized application performance, ensuring smooth and efficient operation across devices",
       "Integrated backend services and third-party REST APIs to enhance app functionality and user experience.",

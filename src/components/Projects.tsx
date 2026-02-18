@@ -5,12 +5,21 @@ import { Badge } from "@/components/ui/badge";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const projects = [
-   {
+  {
     title: "Deen – Your Daily Companion for Faith & Peace",
-    description: "Deen is a Islamic mobile application designed to bring peace and spiritual connection into your daily life. With accurate prayer times, complete Quran access, and thoughtfully curated Islamic content, Deen helps you stay connected to your faith anytime, anywhere.",
+    description: "Deen is an Islamic mobile app designed for spiritual connection in daily life. Featuring accurate prayer times, full Quran access, and curated content, it helps you stay connected to your faith through a sleek and intuitive mobile interface.",
     technologies: ["Flutter", "Dart", "REST API", "Figma"],
     image: '/deen.png',
     githubUrl: "https://github.com/SafuRaja7/Deen",
+    testCaseUrl: "#"
+  },
+   {
+    title: "Pool Art – Specialized Pool Services",
+    description: "A sophisticated Flutter web application for a premier French pool service provider. Features comprehensive solutions for pool maintenance, design, and renovation, with customizable service packages and a dynamic project showcase.",
+    technologies: ["Flutter", "Dart", "Web", "UI/UX"],
+    image: '/poolart.png',
+    liveUrl: "https://poolart.fr",
+    githubUrl: "#",
     testCaseUrl: "#"
   },
   {
@@ -22,16 +31,17 @@ const projects = [
       testCaseUrl: '#'
     },
   {
-    title: "Cypress E2E Automation",
-    description: "Automated end-to-end test cases using Cypress covering user registration, login/logout flows, incorrect credential handling, and comprehensive user journey validation.",
-    technologies: ["Cypress", "E2E Testing", "JavaScript", "Automation"],
+    title: "Continuous Quality Integration",
+    description: "A robust testing suite using Cypress for complex user journeys and authentication flows. Implemented Page Object Model for maintainability and integrated with GitHub Actions to ensure high-performance software standards across platforms.",
+    technologies: ["Cypress", "JavaScript", "CI/CD", "Integration"],
     image: '/cypress.png',
     githubUrl: "https://github.com/SafuRaja7/AutomationExercise-Cypress",
     testCaseUrl: "https://github.com/SafuRaja7/qa-engineer-folio/blob/main/test_cases/tc_project_1.md"
   },
+  
 ];
 
-const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: number }) => {
+const ProjectCard = ({ project, index }: { project: any; index: number }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -64,19 +74,16 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
         initial={{ 
           opacity: 0, 
           y: 30,
-          rotateY: 15, // Subtle initial Y rotation
           scale: 0.95
         }}
         whileInView={{ 
           opacity: 1, 
           y: 0,
-          rotateY: 0,
           scale: 1 
         }}
         viewport={{ once: true }}
         transition={{ 
           duration: 0.8, 
-          delay: index * 0.15,
           ease: [0.22, 1, 0.36, 1] 
         }}
         onMouseMove={handleMouseMove}
@@ -128,12 +135,19 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0]; index: n
               variant="default" 
               className="flex-1 gap-2 bg-primary/90 hover:bg-primary shadow-lg hover:shadow-primary/20 transition-all duration-300"
               onClick={() => {
-                const url = project.testCaseUrl === '#' ? project.githubUrl : project.testCaseUrl;
+                const url = project.liveUrl && project.liveUrl !== '#' 
+                  ? project.liveUrl 
+                  : (project.testCaseUrl === '#' ? project.githubUrl : project.testCaseUrl);
                 if (url !== '#') window.open(url, '_blank');
               }}
-              disabled={project.testCaseUrl === '#' && project.githubUrl === '#'}
+              disabled={project.liveUrl === '#' && project.testCaseUrl === '#' && project.githubUrl === '#'}
             >
-              {project.testCaseUrl === '#' ? (
+              {project.liveUrl && project.liveUrl !== '#' ? (
+                <>
+                  <ExternalLink className="w-4 h-4" />
+                  View Live Demo
+                </>
+              ) : project.testCaseUrl === '#' ? (
                 <>
                   <ExternalLink className="w-4 h-4" />
                   View on Github

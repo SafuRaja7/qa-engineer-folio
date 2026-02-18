@@ -1,58 +1,58 @@
-import { CheckCircle2, Target, Users, FileText, Code, Bug, Database, Wrench, Layout, Smartphone, Layers } from "lucide-react";
+import { Code, Database, Layout, Smartphone, Layers, Boxes, Globe, Zap, Settings, Github } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
-const qaSkills = [
+const devSkills = [
   {
     icon: Smartphone,
     title: "Flutter App Development",
     description:
-      "Building cross-platform mobile applications using Flutter and Dart",
+      "Expertise in building high-performance, cross-platform mobile applications using Flutter and Dart.",
   },
   {
     icon: Layers,
-    title: "State Management & Architecture",
+    title: "Architecture & State Management",
     description:
-      "Implementing clean architecture with Bloc, Provider, and MVVM patterns",
+      "Implementing clean architecture with modern patterns like BLoC, Provider, and Riverpod.",
   },
   {
-    icon: Bug,
-    title: "Flutter Testing & Debugging",
+    icon: Boxes,
+    title: "Performance Optimization",
     description:
-      "Writing unit, widget, and integration tests and debugging Flutter apps effectively",
+      "Optimizing app rendering, memory usage, and build times for a smooth user experience.",
   },
   {
-    icon: Code,
-    title: "Automation Frameworks",
+    icon: Layout,
+    title: "UI/UX Implementation",
     description:
-      "Building scalable test automation frameworks using Playwright, Cypress, and Selenium",
+      "Translating complex Figma designs into pixel-perfect, responsive Flutter widgets.",
   },
   {
-    icon: CheckCircle2,
-    title: "End-to-End Testing",
+    icon: Globe,
+    title: "API & Backend Integration",
     description:
-      "Designing and executing robust E2E tests to validate complex user journeys",
+      "Seamlessly integrating RESTful APIs, GraphQL, and cloud services like Firebase.",
   },
   {
-    icon: FileText,
-    title: "API & Integration Testing",
+    icon: Zap,
+    title: "Feature Development",
     description:
-      "Automating RESTful API tests with tools like Postman and Playwright API",
+      "Developing complex features including payments, real-time chats, and AI-powered tools.",
   },
   {
-    icon: Target,
-    title: "CI/CD Integration",
+    icon: Settings,
+    title: "CI/CD & DevOps",
     description:
-      "Integrating automated tests within Jenkins and GitHub Actions pipelines",
+      "Automating deployment pipelines using GitHub Actions, Codemagic, and Fastlane.",
   },
   {
-    icon: Users,
-    title: "Collaboration & Reporting",
+    icon: Github,
+    title: "Version Control",
     description:
-      "Working closely with developers and stakeholders to ensure release quality",
+      "Advanced Git workflows, code reviews, and maintaining scalable codebases.",
   },
 ];
 
-const SkillCard = ({ skill, index, type = "qa" }: { skill: any; index: number; type?: "qa" | "dev" }) => {
+const SkillCard = ({ skill, index }: { skill: any; index: number }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -79,33 +79,24 @@ const SkillCard = ({ skill, index, type = "qa" }: { skill: any; index: number; t
     y.set(0);
   };
 
-  const devIcons: Record<string, any> = {
-    Frontend: Layout,
-    Backend: Database,
-    'Tools & Others': Wrench,
-  };
-
-  const Icon = type === "dev" ? (devIcons[skill.title] || Code) : (skill.icon || Code);
+  const Icon = skill.icon || Code;
 
   return (
     <div className="perspective-1000">
       <motion.div
         initial={{ 
           opacity: 0, 
-          rotateY: 1200, 
           scale: 0.2,
           filter: "blur(8px)" 
         }}
         whileInView={{ 
           opacity: 1, 
-          rotateY: 0, 
           scale: 1,
           filter: "blur(0px)" 
         }}
         viewport={{ once: true }}
         transition={{ 
           duration: .5, 
-          delay: index * 0.1, 
           ease: [1, 0, 1, 1]
         }}
         onMouseMove={handleMouseMove}
@@ -115,7 +106,7 @@ const SkillCard = ({ skill, index, type = "qa" }: { skill: any; index: number; t
           rotateY,
           transformStyle: "preserve-3d",
         }}
-        className={`group p-8 rounded-2xl bg-card/40 backdrop-blur-md border border-border/50 hover:border-primary/50 shadow-2xl hover:shadow-primary/20 transition-all duration-500 relative overflow-hidden ${type === 'qa' ? 'h-full' : ''}`}
+        className={`group p-8 rounded-2xl bg-card/40 backdrop-blur-md border border-border/50 hover:border-primary/50 shadow-2xl hover:shadow-primary/20 transition-all duration-500 relative overflow-hidden h-full`}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
@@ -133,47 +124,20 @@ const SkillCard = ({ skill, index, type = "qa" }: { skill: any; index: number; t
           {skill.title}
         </h3>
         
-        {type === "qa" ? (
-          <p 
-            style={{ transform: "translateZ(20px)" }}
-            className="relative z-10 text-muted-foreground leading-relaxed"
-          >
-            {skill.description}
-          </p>
-        ) : (
-          <div 
-            style={{ transform: "translateZ(30px)" }}
-            className="relative z-10 space-y-6"
-          >
-            {skill.skills.map((s: any, idx: number) => (
-              <div key={idx} className="space-y-2">
-                <div className="flex justify-between items-center text-sm">
-                  <span className="font-medium text-foreground/80">{s.name}</span>
-                  <span className="text-primary font-bold">{s.level}%</span>
-                </div>
-                <div className="h-1.5 w-full bg-primary/10 rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${s.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.5, delay: 0.5 + index * 0.1 + idx * 0.1 }}
-                    className="h-full bg-gradient-to-r from-primary to-primary-foreground rounded-full shadow-[0_0_10px_rgba(var(--primary),0.5)]"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
+        <p 
+          style={{ transform: "translateZ(20px)" }}
+          className="relative z-10 text-muted-foreground leading-relaxed"
+        >
+          {skill.description}
+        </p>
       </motion.div>
     </div>
   );
 };
 
 export function Skills() {
-
-
   const technologies = [
-    'Flutter', 'Dart', 'Python', 'Git', 'REST APIs', 'Figma', 'Cypress', 'Salenium', 'Playwright'
+    'Flutter', 'Dart', 'Python', 'Git', 'REST APIs', 'Firebase', 'Figma', 'GraphQL', 'Riverpod', 'BLoC'
   ];
 
   return (
@@ -183,7 +147,6 @@ export function Skills() {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container max-w-6xl mx-auto relative z-10">
-        {/* QA Skills Section */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -191,21 +154,18 @@ export function Skills() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground to-primary mb-6">
-            Core Competencies
+            Technical Expertise
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Specialized expertise in software quality assurance and testing methodologies
+            Specialized expertise in Flutter development, architecture, and building scalable mobile solutions
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-          {qaSkills.map((skill, index) => (
-            <SkillCard key={index} skill={skill} index={index} type="qa" />
+          {devSkills.map((skill, index) => (
+            <SkillCard key={index} skill={skill} index={index} />
           ))}
         </div>
-
-      
-
 
         {/* Technologies Cloud */}
         <motion.div
@@ -227,7 +187,7 @@ export function Skills() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 whileHover={{ scale: 1.1, backgroundColor: "rgba(var(--primary), 0.15)" }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 * index }}
+                transition={{ duration: 0.3 }}
                 className="px-6 py-2.5 rounded-full bg-primary/5 border border-primary/20 text-foreground font-medium backdrop-blur-sm hover:border-primary/50 hover:shadow-glow transition-all cursor-default"
               >
                 {tech}
@@ -239,4 +199,3 @@ export function Skills() {
     </section>
   );
 }
-

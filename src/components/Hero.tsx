@@ -10,7 +10,7 @@ export const Hero = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const titles = ["QA Automation Engineer", "Software Developer"];
+  const titles = ["Flutter Developer"];
 
   useEffect(() => {
     const currentTitle = titles[currentTitleIndex];
@@ -139,11 +139,10 @@ export const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-lg text-muted-foreground leading-relaxed"
             >
-              Passionate QA Automation Engineer transitioning from a software
-              development background. With over 2 years of experience in web and
-              mobile development, I now focus on building robust automated test
-              frameworks, improving test coverage, and enhancing product
-              reliability using tools like Playwright, Selenium, and Cypress.
+              Passionate Flutter Developer with 3 years of experience in building high-performance 
+              mobile and web applications. I specialize in creating seamless user experiences using 
+              Flutter, Dart, and modern state management patterns, with a strong background in 
+              integrating AI and complex third-party services.
             </motion.p>
 
             <motion.div
@@ -221,7 +220,7 @@ export const Hero = () => {
             >
               <img
                 src={profilePhoto}
-                alt="Saif Waheed Raja - QA Engineer"
+                alt="Saif Waheed Raja - Flutter Developer"
                 className="w-full max-w-md mx-auto rounded-2xl shadow-glow border-4 border-card"
               />
             </motion.div>
@@ -240,7 +239,7 @@ export const Hero = () => {
               }}
               className="absolute -top-6 -right-6 p-4 bg-card rounded-xl border border-border shadow-xl hidden md:block"
             >
-              <p className="text-primary font-bold">QA Automation Engineer</p>
+              <p className="text-primary font-bold">Flutter Developer</p>
             </motion.div>
 
             <motion.div
@@ -255,7 +254,7 @@ export const Hero = () => {
               }}
               className="absolute -bottom-6 -left-6 p-4 bg-card rounded-xl border border-border shadow-xl hidden md:block"
             >
-              <p className="text-secondary font-bold">Software Developer</p>
+              <p className="text-secondary font-bold">Mobile App Developer</p>
             </motion.div>
           </motion.div>
         </div>
