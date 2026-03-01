@@ -4,12 +4,17 @@ import { ExternalLink, FileText } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
+import deenImg from "@/assets/deen.png";
+import poolartImg from "@/assets/poolart.png";
+import newsyImg from "@/assets/Newsy.png";
+import cypressImg from "@/assets/cypress.png";
+
 const projects = [
   {
     title: "Deen – Your Daily Companion for Faith & Peace",
     description: "Deen is an Islamic mobile app designed for spiritual connection in daily life. Featuring accurate prayer times, full Quran access, and curated content, it helps you stay connected to your faith through a sleek and intuitive mobile interface.",
     technologies: ["Flutter", "Dart", "REST API", "Figma"],
-    image: '/deen.png',
+    image: deenImg,
     githubUrl: "https://github.com/SafuRaja7/Deen",
     testCaseUrl: "#"
   },
@@ -17,7 +22,7 @@ const projects = [
     title: "Pool Art – Specialized Pool Services",
     description: "A sophisticated Flutter web application for a premier French pool service provider. Features comprehensive solutions for pool maintenance, design, and renovation, with customizable service packages and a dynamic project showcase.",
     technologies: ["Flutter", "Dart", "Web", "UI/UX"],
-    image: '/poolart.png',
+    image: poolartImg,
     liveUrl: "https://poolart.fr",
     githubUrl: "#",
     testCaseUrl: "#"
@@ -25,7 +30,7 @@ const projects = [
   {
       title: 'Multiplatform News App',
       description: 'Stay informed with our sleek, cross-platform News App built using Flutter and Dart. Designed for Android, iOS, Web, and Desktop, this app delivers real-time news from trusted sources in a fast, responsive, and beautifully crafted UI.',
-      image: '/Newsy.png',
+      image: newsyImg,
       technologies: ['Flutter', 'Dart','REST API'],
       githubUrl: 'https://github.com/SafuRaja7/News-App-Multi-Platform',
       testCaseUrl: '#'
@@ -34,7 +39,7 @@ const projects = [
     title: "Continuous Quality Integration",
     description: "A robust testing suite using Cypress for complex user journeys and authentication flows. Implemented Page Object Model for maintainability and integrated with GitHub Actions to ensure high-performance software standards across platforms.",
     technologies: ["Cypress", "JavaScript", "CI/CD", "Integration"],
-    image: '/cypress.png',
+    image: cypressImg,
     githubUrl: "https://github.com/SafuRaja7/AutomationExercise-Cypress",
     testCaseUrl: "https://github.com/SafuRaja7/qa-engineer-folio/blob/main/test_cases/tc_project_1.md"
   },
