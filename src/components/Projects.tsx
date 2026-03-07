@@ -108,7 +108,18 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
             <motion.img 
               src={project.image} 
               alt={project.title}
+              loading="lazy"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                console.error(`Failed to load image: ${project.image}`);
+                target.src = "/placeholder.svg"; // Fallback to public placeholder
+              } }
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              initial={{ opacity: 0 }}
+              onLoad={(e) => {
+                (e.target as HTMLImageElement).style.opacity = "1";
+              }}
+              style={{ opacity: 0, transition: "opacity 0.5s ease-in-out" }}
             />
           </div>
 

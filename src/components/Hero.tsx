@@ -221,6 +221,9 @@ export const Hero = () => {
               <img
                 src={profilePhoto}
                 alt="Saif Waheed Raja - Flutter Developer"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "/placeholder.svg";
+                }}
                 className="w-full max-w-md mx-auto rounded-2xl shadow-glow border-4 border-card"
               />
             </motion.div>
