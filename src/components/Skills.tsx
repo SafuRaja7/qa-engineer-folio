@@ -1,5 +1,5 @@
 import { Code, Database, Layout, Smartphone, Layers, Boxes, Globe, Zap, Settings, Github } from "lucide-react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 const devSkills = [
   {
@@ -53,85 +53,38 @@ const devSkills = [
 ];
 
 const SkillCard = ({ skill, index }: { skill: any; index: number }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
   const Icon = skill.icon || Code;
 
   return (
-    <div className="perspective-1000">
-      <motion.div
-        initial={{ 
-          opacity: 0, 
-          scale: 0.2,
-          filter: "blur(8px)" 
-        }}
-        whileInView={{ 
-          opacity: 1, 
-          scale: 1,
-          filter: "blur(0px)" 
-        }}
-        viewport={{ once: true }}
-        transition={{ 
-          duration: .5, 
-          ease: [1, 0, 1, 1]
-        }}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
-        }}
-        className={`group p-8 rounded-2xl bg-card/40 backdrop-blur-md border border-border/50 hover:border-primary/50 shadow-2xl hover:shadow-primary/20 transition-all duration-500 relative overflow-hidden h-full`}
-      >
+    <motion.div
+      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="h-full"
+    >
+      <div className="group p-8 rounded-2xl bg-card/40 backdrop-blur-md border border-border/50 hover:border-primary/50 shadow-2xl hover:shadow-primary/20 transition-all duration-300 relative overflow-hidden h-full hover:-translate-y-2">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
         <div 
-          style={{ transform: "translateZ(50px)" }}
           className="relative z-10 w-14 h-14 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-primary/10"
         >
           <Icon className="w-7 h-7 text-primary" />
         </div>
         
         <h3 
-          style={{ transform: "translateZ(40px)" }}
           className="relative z-10 text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300"
         >
           {skill.title}
         </h3>
         
         <p 
-          style={{ transform: "translateZ(20px)" }}
           className="relative z-10 text-muted-foreground leading-relaxed"
         >
           {skill.description}
         </p>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };
 
@@ -143,18 +96,18 @@ export function Skills() {
   return (
     <section id="skills" className="py-24 px-4 bg-background relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none hidden md:block" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/5 rounded-full blur-[120px] pointer-events-none hidden md:block" />
 
       <div className="container max-w-6xl mx-auto relative z-10">
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-foreground to-primary mb-6">
-            Technical Expertise
+            TECHNICAL EXPERTISE
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Specialized expertise in Flutter development, architecture, and building scalable mobile solutions

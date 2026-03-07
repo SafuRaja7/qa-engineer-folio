@@ -73,7 +73,7 @@ export const Hero = () => {
       className="relative min-h-screen flex items-center justify-center px-4 py-20 bg-card/50 pt-24 overflow-hidden"
     >
       {/* Background 3D Elements */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
+      <div className="absolute inset-0 -z-10 pointer-events-none hidden md:block">
         <motion.div
           animate={{
             y: [0, -20, 0],

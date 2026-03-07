@@ -54,10 +54,9 @@ All colors MUST be HSL.
       hsl(220 15% 5%),
       hsl(220 20% 8%)
     );
-    --shadow-glow: 0 0 40px hsla(195, 100%, 50%, 0.5),
-      0 0 80px hsla(195, 100%, 50%, 0.3);
-    --shadow-card: 0 4px 30px hsla(195, 100%, 50%, 0.2);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-glow: 0 0 40px hsla(195, 100%, 50%, 0.4);
+    --shadow-card: 0 4px 20px hsla(195, 100%, 50%, 0.15);
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 220 20% 8%;
     --sidebar-foreground: 200 100% 95%;
@@ -96,8 +95,18 @@ All colors MUST be HSL.
   position: absolute;
   border-radius: 50%;
   filter: blur(60px);
-  opacity: 0.4;
+  opacity: 0.3;
   animation: float 20s ease-in-out infinite;
+  will-change: transform, opacity;
+  transform: translateZ(0); /* Hardware acceleration */
+}
+
+@media (max-width: 768px) {
+  .neon-orb {
+    filter: blur(40px);
+    opacity: 0.2;
+    animation: none; /* Disable expensive animations on mobile */
+  }
 }
 
 .neon-orb-1 {
@@ -138,6 +147,13 @@ All colors MUST be HSL.
     transparent
   );
   animation: moveLine 15s linear infinite;
+  will-change: left;
+}
+
+@media (max-width: 768px) {
+  .animated-line {
+    display: none; /* Lines are hard to see and expensive on mobile */
+  }
 }
 
 .line-1 {
@@ -179,6 +195,14 @@ All colors MUST be HSL.
   border-radius: 50%;
   box-shadow: 0 0 6px hsl(195 100% 50%);
   animation: twinkle 3s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@media (max-width: 768px) {
+  .star {
+    animation: none; /* Hide movement or expensive effects on mobile */
+    opacity: 0.5;
+  }
 }
 
 .star-1 {
@@ -248,6 +272,24 @@ All colors MUST be HSL.
   50% {
     opacity: 1;
     transform: scale(1.5);
+  }
+}
+
+@layer utilities {
+  @media (max-width: 768px) {
+    .backdrop-blur-sm,
+    .backdrop-blur-md,
+    .backdrop-blur-lg,
+    .backdrop-blur-xl {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      background-color: hsl(var(--card) / 0.95) !important;
+    }
+    
+    .shadow-glow,
+    .shadow-2xl {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+    }
   }
 }
 
